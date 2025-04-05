@@ -1,215 +1,289 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belajar Coding With Alpin</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        body {
-            background: linear-gradient(to right, #1e3c72, #2a5298);
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        .container {
-            max-width: 900px;
-            margin: auto;
-        }
-        .section {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            margin: 50px 0;
-            border-radius: 10px;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1s, transform 1s;
-        }
-        .visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .code-box {
-            background: black;
-            padding: 15px;
-            border-radius: 5px;
-            text-align: left;
-            white-space: pre-wrap;
-            color: #39ff14;
-            font-family: monospace;
-            position: relative;
-            margin-top: 10px;
-        }
-        .copy-btn {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: red;
-            color: white;
-            border: none;
-            padding: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            border-radius: 5px;
-        }
-        footer {
-            margin-top: 50px;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belajar Semua Bahasa Pemrograman</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #e0f7fa, #ffffff);
+        font-family: 'Poppins', sans-serif;
+        overflow-x: hidden;
+        color: #333;
+        position: relative;
+    }
+    header {
+        text-align: center;
+        padding: 20px 10px;
+    }
+    header h1 {
+        font-size: 2rem; /* Diperkecil */
+        color: #0077ff;
+        margin-bottom: 10px;
+    }
+    .typing {
+        font-size: 1.2rem;
+        color: #555;
+        height: 30px;
+    }
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 40px;
+        position: relative;
+        z-index: 2;
+    }
+    .card {
+        background: #ffffffcc;
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        position: relative;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    .card h2 {
+        margin-top: 0;
+    }
+    pre {
+        background: #f4f4f4;
+        padding: 10px;
+        border-radius: 10px;
+        overflow-x: auto;
+    }
+    button.copy-btn {
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: #00bcd4;
+        border: none;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    button.copy-btn:hover {
+        background-color: #0097a7;
+    }
+    footer {
+      margin: 20px 0;
+      font-size: 14px;
+      color: #444;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-direction: column;
+    }
+    .verified-icon {
+      width: 19px;
+      height: 18px;
+    }
+    .developer-info {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+    /* Bubble animation */
+    .bubble {
+        position: absolute;
+        bottom: -100px;
+        background: rgba(0, 183, 255, 0.2);
+        border-radius: 50%;
+        animation: rise 18s infinite ease-in;
+    }
+    @keyframes rise {
+        0% {transform: translateY(0) scale(1);}
+        100% {transform: translateY(-1000px) scale(0.5);}
+    }
+</style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Belajar Coding - Panduan Lengkap</h1>
+<header>
+    <h1>Belajar Semua Bahasa Pemrograman</h1>
+    <div class="typing" id="typing"></div>
+</header>
 
-        <div class="section">
-            <h2>Apa itu Coding?</h2>
-            <p>Coding adalah proses menulis instruksi untuk komputer agar bisa menjalankan tugas tertentu. Dengan coding, kita bisa membuat aplikasi, website, dan berbagai sistem lainnya.</p>
-        </div>
-
-        <div class="section">
-            <h2>Apa itu Programmer?</h2>
-            <p>Programmer adalah seseorang yang menulis kode untuk mengembangkan perangkat lunak atau aplikasi. Mereka bekerja menggunakan berbagai bahasa pemrograman seperti HTML, CSS, JavaScript, dan lainnya.</p>
-        </div>
-
-        <div class="section">
-            <h2>HTML - Struktur Halaman Web</h2>
-            <p>HTML (HyperText Markup Language) adalah bahasa markup yang digunakan untuk membuat struktur halaman web. HTML menggunakan elemen-elemen seperti &lt;h1&gt;, &lt;p&gt;, &lt;div&gt;, dan lainnya untuk menyusun konten dalam dokumen.</p>
-            <div class="code-box">
-                <button class="copy-btn" onclick="copyCode(this)">Salin</button>
-                <code>
-&lt;!DOCTYPE html&gt;
+<div class="container">
+    <!-- HTML -->
+    <div class="card">
+        <h2>🌐 HTML</h2>
+        <p>HTML digunakan untuk membangun struktur dasar halaman website.</p>
+        <pre id="html-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;Halaman Web&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;Halo Dunia!&lt;/h1&gt;
-&lt;/body&gt;
+  &lt;head&gt;&lt;title&gt;Halo Dunia&lt;/title&gt;&lt;/head&gt;
+  &lt;body&gt;Hello World!&lt;/body&gt;
 &lt;/html&gt;
-                </code>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>CSS - Desain Halaman Web</h2>
-            <p>CSS digunakan untuk mempercantik tampilan website, mengatur warna, tata letak, dan animasi.</p>
-            <div class="code-box">
-                <button class="copy-btn" onclick="copyCode(this)">Salin</button>
-                <code>
-body {
-    background-color: lightblue;
-    text-align: center;
-}
-h1 {
-    color: white;
-    font-size: 24px;
-}
-                </code>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>JavaScript - Interaksi Website</h2>
-            <p>JavaScript membuat website menjadi lebih interaktif dan dinamis.</p>
-            <div class="code-box">
-                <button class="copy-btn" onclick="copyCode(this)">Salin</button>
-                <code>
-document.getElementById("demo").innerHTML = "Hello, JavaScript!";
-                </code>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>SQL - Database Management</h2>
-            <p>SQL digunakan untuk mengelola database, menyimpan dan mengambil data.</p>
-            <div class="code-box">
-                <button class="copy-btn" onclick="copyCode(this)">Salin</button>
-                <code>
-SELECT * FROM users WHERE age > 18;
-                </code>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>PHP - Backend Web</h2>
-            <p>PHP digunakan untuk membangun website dinamis dengan backend yang berinteraksi dengan database.</p>
-            <div class="code-box">
-                <button class="copy-btn" onclick="copyCode(this)">Salin</button>
-                <code>
-&lt;?php
-echo "Halo, ini PHP!";
-?&gt;
-                </code>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Java - Aplikasi dan Android</h2>
-            <p>Java adalah bahasa pemrograman yang digunakan dalam pengembangan aplikasi desktop dan mobile.</p>
-            <div class="code-box">
-                <button class="copy-btn" onclick="copyCode(this)">Salin</button>
-                <code>
-public class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, Java!");
-    }
-}
-                </code>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Python - Pemrograman Serbaguna</h2>
-            <p>Python adalah bahasa pemrograman yang mudah dipelajari dan digunakan untuk berbagai keperluan, termasuk AI dan data science.</p>
-            <div class="code-box">
-                <button class="copy-btn" onclick="copyCode(this)">Salin</button>
-                <code>
-print("Hello, Python!")
-                </code>
-            </div>
-        </div>
-
-        <footer>
-            <p>Website ini dibuat oleh Alpin</p>
-        </footer>
-
+</pre>
+        <button class="copy-btn" onclick="copyCode('html-code')">Salin Kode</button>
     </div>
 
-    <script>
-        function reveal() {
-            let sections = document.querySelectorAll(".section");
-            sections.forEach((section) => {
-                let position = section.getBoundingClientRect().top;
-                let windowHeight = window.innerHeight;
-                if (position < windowHeight - 50) {
-                    section.classList.add("visible");
-                }
-            });
-        }
+    <!-- CSS -->
+    <div class="card">
+        <h2>🎨 CSS</h2>
+        <p>CSS digunakan untuk mempercantik tampilan halaman website.</p>
+        <pre id="css-code">body {
+  background-color: lightblue;
+  font-family: Arial, sans-serif;
+}</pre>
+        <button class="copy-btn" onclick="copyCode('css-code')">Salin Kode</button>
+    </div>
 
-        function copyCode(button) {
-            let codeBox = button.nextElementSibling;
-            let textArea = document.createElement("textarea");
-            textArea.value = codeBox.innerText;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand("copy");
-            document.body.removeChild(textArea);
-            alert("Kode berhasil disalin!");
-        }
+    <!-- JavaScript -->
+    <div class="card">
+        <h2>⚡ JavaScript</h2>
+        <p>JavaScript digunakan untuk membuat halaman website menjadi interaktif.</p>
+        <pre id="js-code">alert("Hello, World!");</pre>
+        <button class="copy-btn" onclick="copyCode('js-code')">Salin Kode</button>
+    </div>
 
-        window.addEventListener("scroll", reveal);
-        reveal();
-    </script>
+    <!-- PHP -->
+    <div class="card">
+        <h2>🐘 PHP</h2>
+        <p>PHP digunakan untuk pemrograman server-side dalam membangun website dinamis.</p>
+        <pre id="php-code">&lt;?php
+echo "Halo Dunia!";
+?&gt;</pre>
+        <button class="copy-btn" onclick="copyCode('php-code')">Salin Kode</button>
+    </div>
+
+    <!-- Python -->
+    <div class="card">
+        <h2>🐍 Python</h2>
+        <p>Python digunakan untuk pengembangan web, AI, automasi, dan data science.</p>
+        <pre id="python-code">print("Hello, World!")</pre>
+        <button class="copy-btn" onclick="copyCode('python-code')">Salin Kode</button>
+    </div>
+
+    <!-- Java -->
+    <div class="card">
+        <h2>☕ Java</h2>
+        <p>Java digunakan untuk pengembangan aplikasi mobile, web, dan desktop.</p>
+        <pre id="java-code">public class HelloWorld {
+  public static void main(String[] args) {
+    System.out.println("Hello, World!");
+  }
+}</pre>
+        <button class="copy-btn" onclick="copyCode('java-code')">Salin Kode</button>
+    </div>
+
+    <!-- C++ -->
+    <div class="card">
+        <h2>💻 C++</h2>
+        <p>C++ digunakan untuk pemrograman sistem, game, dan aplikasi desktop yang cepat.</p>
+        <pre id="cpp-code">#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    cout &lt;&lt; "Hello, World!";
+    return 0;
+}</pre>
+        <button class="copy-btn" onclick="copyCode('cpp-code')">Salin Kode</button>
+    </div>
+
+    <!-- Ruby -->
+    <div class="card">
+        <h2>💎 Ruby</h2>
+        <p>Ruby banyak digunakan untuk pengembangan web dan aplikasi startup.</p>
+        <pre id="ruby-code">puts "Hello, World!"</pre>
+        <button class="copy-btn" onclick="copyCode('ruby-code')">Salin Kode</button>
+    </div>
+
+    <!-- Go -->
+    <div class="card">
+        <h2>🐹 Go</h2>
+        <p>Go digunakan untuk sistem backend cepat dan aplikasi cloud-native.</p>
+        <pre id="go-code">package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, World!")
+}</pre>
+        <button class="copy-btn" onclick="copyCode('go-code')">Salin Kode</button>
+    </div>
+
+    <!-- Swift -->
+    <div class="card">
+        <h2>🧠 Swift</h2>
+        <p>Swift digunakan untuk membuat aplikasi iOS dan macOS.</p>
+        <pre id="swift-code">import Swift
+
+print("Hello, World!")</pre>
+        <button class="copy-btn" onclick="copyCode('swift-code')">Salin Kode</button>
+    </div>
+</div>
+
+<div class="developer-info">
+    <h2>Tentang Developer</h2>
+    <div class="social-links">
+      <a href="mailto:ajaalpiann@gmail.com">Email</a> |
+      <a href="https://wa.me/6283120589335" target="_blank">WhatsApp</a> |
+      <a href="https://t.me/alpinxyz" target="_blank">Telegram</a> |
+      <a href="https://instagram.com/alpian1_" target="_blank">Instagram</a>
+    </div>
+  </div>
+
+  <footer>
+    <span>Alpin Developer</span>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg" alt="Verified" class="verified-icon">
+  </footer>
+
+<!-- Bubbles effect -->
+<script>
+for (let i = 0; i < 20; i++) {
+    let bubble = document.createElement('div');
+    bubble.className = 'bubble';
+    bubble.style.width = bubble.style.height = (Math.random() * 40 + 10) + 'px';
+    bubble.style.left = Math.random() * 100 + 'vw';
+    bubble.style.animationDuration = (Math.random() * 10 + 10) + 's';
+    document.body.appendChild(bubble);
+}
+</script>
+
+<!-- Copy function + Sound -->
+<script>
+function copyCode(id) {
+    let code = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(code);
+    let audio = new Audio('https://www.soundjay.com/button/sounds/button-16.mp3');
+    audio.play();
+}
+</script>
+
+<!-- Typing effect -->
+<script>
+const words = ["HTML", "CSS", "JavaScript", "PHP", "Python", "Java", "C++", "Ruby", "Go", "Swift"];
+let i = 0, j = 0, currentWord = '', isDeleting = false;
+const typingElement = document.getElementById('typing');
+
+function type() {
+    if (i < words.length) {
+        if (!isDeleting && j <= words[i].length) {
+            currentWord = words[i].substring(0, j++);
+            typingElement.innerHTML = currentWord;
+            setTimeout(type, 200);
+        } else if (isDeleting && j >= 0) {
+            currentWord = words[i].substring(0, j--);
+            typingElement.innerHTML = currentWord;
+            setTimeout(type, 100);
+        } else {
+            isDeleting = !isDeleting;
+            if (!isDeleting) i++;
+            setTimeout(type, 500);
+        }
+    } else {
+        i = 0;
+        type();
+    }
+}
+type();
+</script>
 
 </body>
 </html>
